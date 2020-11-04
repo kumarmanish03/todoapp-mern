@@ -14,6 +14,8 @@ function TodoItem(props) {
     props.toggleTodo(props.item.id);
   };
 
+  const date = props.item.date == null ? "10:58 17/09/2020" : props.item.date;
+
   return (
     <div className="todo-item">
       <div className="todoi">
@@ -24,8 +26,11 @@ function TodoItem(props) {
         ></input>
         <label style={styles}>{props.item.text}</label>
       </div>
+      <div className="date">{date}</div>
       <div>
-        <button onClick={delTodo}>x</button>
+        <button onClick={delTodo} className="btn">
+          <i class="fa fa-trash"></i>
+        </button>
       </div>
     </div>
   );

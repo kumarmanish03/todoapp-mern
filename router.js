@@ -8,12 +8,24 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  const date = new Date();
+  const dateTime =
+    date.getHours() +
+    ":" +
+    date.getMinutes() +
+    " " +
+    date.getDate() +
+    "/" +
+    date.getMonth() +
+    "/" +
+    date.getFullYear();
   const newMember = {
     id: uuid.v1(),
     text: req.body.text,
     completed: false,
+    date: dateTime,
   };
-  console.log("connected");
+  console.log(dateTime);
   if (!req.body.text) {
     return res.status(400).json({ msg: "Please include a name" });
   }

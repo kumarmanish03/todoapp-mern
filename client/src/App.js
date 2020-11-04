@@ -5,13 +5,6 @@ import Form from "./Form";
 //import todosData from "../../todosData";
 
 class App extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     todosData: [],
-  //   };
-  // }
-
   state = {
     todosData: [],
   };

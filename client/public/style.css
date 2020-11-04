@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: whitesmoke;
 }
@@ -19,6 +24,21 @@ body {
   padding: 30px;
 }
 
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btnSubmit {
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+}
+
 .todo-item {
   display: flex;
   justify-content: space-between;
@@ -36,15 +56,21 @@ body {
   display: flex;
 }
 
+.date {
+  color: grey;
+}
+
 .todo-item button {
   display: flex;
-  background: orangered;
-  color: #fff;
+  font-size: 24px;
   border: none;
   padding: 5px 9px;
-  border-radius: 50%;
   cursor: pointer;
   align-items: right;
+}
+
+.todo-item label {
+  font-size: 20px;
 }
 
 input[type="checkbox"] {
@@ -52,6 +78,87 @@ input[type="checkbox"] {
   font-size: 30px;
 }
 
-input[type="checkbox"]:focus {
+input[type="checkbox"]:focus,
+input[type="text"]:focus {
   outline: 0;
+}
+
+/* Form */
+
+.todo-form {
+  text-align: center;
+  margin: 20px;
+}
+
+.todo-form input {
+  padding: 10px;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.todo-form button {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: 20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.todo-form button i {
+  font-size: 60px;
+}
+
+.todo-form button:hover {
+  color: black;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+  background-color: DodgerBlue;
+  color: white;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 700px) {
+  .todo-list {
+    width: 80%;
+  }
+
+  .todo-form {
+    text-align: left;
+  }
+
+  .todo-form input {
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+  }
+
+  .todo-form button {
+    margin-left: 10px;
+  }
+
+  .todo-form button i {
+    font-size: 50px;
+  }
+
+  .todo-item {
+    display: grid;
+    grid-template-rows: 3;
+    grid-gap: 10px;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .todo-item label {
+    font-size: 20px;
+  }
 }
