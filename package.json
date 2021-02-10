@@ -4,6 +4,7 @@
   "description": "todo-app using nodejs for frontend and nodejs using expressjs",
   "main": "server.js",
   "scripts": {
+    "client-install": "cd client && npm install",
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
