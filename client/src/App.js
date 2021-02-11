@@ -4,13 +4,15 @@ import TodoItem from "./TodoItem";
 import Form from "./Form";
 //import todosData from "../../todosData";
 
+const url = "https://my-todos-app.herokuapp.com/api/todos";
+
 class App extends React.Component {
   state = {
     todosData: [],
   };
 
   componentDidMount() {
-    fetch("/api/todos")
+    fetch(url)
       .then((res) => res.json())
       .then((todos) =>
         this.setState(
@@ -23,7 +25,7 @@ class App extends React.Component {
   }
 
   addTodo = (todo) => {
-    fetch("/api/todos", {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -41,7 +43,7 @@ class App extends React.Component {
   };
 
   delTodo = (id) => {
-    fetch("/api/todos/" + id, {
+    fetch(url + id, {
       method: "DELETE",
     })
       .then((res) => res.json())
