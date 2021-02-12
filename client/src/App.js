@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 import Form from "./Form";
 //import todosData from "../../todosData";
 
-const url = "https://my-todos-app.herokuapp.com/api/todos";
+const url = "https://my-todos-app.herokuapp.com/api/todos/";
 
 class App extends React.Component {
   state = {
