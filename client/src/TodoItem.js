@@ -14,7 +14,10 @@ function TodoItem(props) {
     props.toggleTodo(props.item.id);
   };
 
-  const date = props.item.date == null ? "10:58 17/09/2020" : props.item.date;
+  const getDate = (str) => {
+    const date = new Date(str);
+    return date.toDateString();
+  };
 
   return (
     <div className="todo-item">
@@ -24,9 +27,9 @@ function TodoItem(props) {
           defaultChecked={props.item.completed}
           onChange={toggleTodo}
         ></input>
-        <label style={styles}>{props.item.text}</label>
+        <label style={styles}>{props.item.todo}</label>
       </div>
-      <div className="date">{date}</div>
+      <div className="date">{getDate(props.item.date_added)}</div>
       <div>
         <button onClick={delTodo} className="btn">
           <i class="fa fa-trash"></i>

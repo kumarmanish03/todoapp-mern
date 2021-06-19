@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const mysql = require("mysql");
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use("/api/todos", require("./router"));
 app.get("/", (req, res) => {
   res.send("Hello to my API");
 });
+
+// PORT
 
 const PORT = process.env.PORT || 5000;
 

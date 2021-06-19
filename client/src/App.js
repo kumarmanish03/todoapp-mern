@@ -4,24 +4,29 @@ import TodoItem from "./TodoItem";
 import Form from "./Form";
 //import todosData from "../../todosData";
 
-const url = "https://my-todos-app.herokuapp.com/api/todos/";
+// const url = "https://my-todos-app.herokuapp.com/api/todos/";
+const url = "http://localhost:5000/api/todos/";
 
 class App extends React.Component {
   state = {
     todosData: [],
   };
 
-  componentDidMount() {
+  fetchtodo = () => {
     fetch(url)
       .then((res) => res.json())
       .then((todos) =>
         this.setState(
           {
-            todosData: todos,
+            todosData: todos.todos,
           },
           () => console.log("Todos fetched from API...")
         )
       );
+  };
+
+  componentDidMount() {
+    this.fetchtodo();
   }
 
   addTodo = (todo) => {
@@ -31,15 +36,11 @@ class App extends React.Component {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        text: todo,
+        todo: todo,
       }),
     })
       .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          todosData: data,
-        })
-      );
+      .then((data) => this.fetchtodo());
   };
 
   delTodo = (id) => {
@@ -48,21 +49,18 @@ class App extends React.Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        this.setState({
-          todosData: data.todosData,
-        });
+        this.fetchtodo();
       });
   };
 
   toggleTodo = (id) => {
-    this.setState({
-      todosData: this.state.todosData.map((todo) => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-        }
-        return todo;
-      }),
-    });
+    fetch(url + id + "/completed", {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.fetchtodo();
+      });
   };
 
   render() {
