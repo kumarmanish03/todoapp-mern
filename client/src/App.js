@@ -10,19 +10,23 @@ const url = "http://localhost:5000/api/todos/";
 class App extends React.Component {
   state = {
     todosData: [],
+    isLoading: false,
   };
 
   fetchtodo = () => {
+    this.setState({ isLoading: true });
+
     fetch(url)
       .then((res) => res.json())
-      .then((todos) =>
+      .then((todos) => {
         this.setState(
           {
             todosData: todos.todos,
           },
           () => console.log("Todos fetched from API...")
-        )
-      );
+        );
+        this.setState({ isLoading: false });
+      });
   };
 
   componentDidMount() {
@@ -30,6 +34,8 @@ class App extends React.Component {
   }
 
   addTodo = (todo) => {
+    this.setState({ isLoading: true });
+
     fetch(url, {
       method: "POST",
       headers: {
@@ -44,6 +50,8 @@ class App extends React.Component {
   };
 
   delTodo = (id) => {
+    this.setState({ isLoading: true });
+
     fetch(url + id, {
       method: "DELETE",
     })
@@ -54,6 +62,8 @@ class App extends React.Component {
   };
 
   toggleTodo = (id) => {
+    this.setState({ isLoading: true });
+
     fetch(url + id + "/completed", {
       method: "PUT",
     })
@@ -76,7 +86,9 @@ class App extends React.Component {
     return (
       <div>
         <Form addTodo={this.addTodo} />
-        <div className="todo-list">{todoItems}</div>
+        <div className="todo-list">
+          {this.state.isLoading ? "Loading..." : todoItems}
+        </div>
       </div>
     );
   }
