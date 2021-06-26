@@ -20,9 +20,6 @@ class Form extends React.Component {
   render() {
     return (
       <div className="form-head">
-        <div className="header">
-          <h1>Todo App</h1>
-        </div>
         <div className="todo-form">
           <form onSubmit={this.onSubmit}>
             <input
@@ -32,7 +29,7 @@ class Form extends React.Component {
               required
             ></input>
             <button className="btnSubmit">
-              <i class="fa fa-plus-square-o"></i>
+              <i className="fa fa-plus-square-o"></i>
             </button>
           </form>
         </div>

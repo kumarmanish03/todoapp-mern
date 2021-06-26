@@ -121,6 +121,18 @@ button:focus {
   text-align: center;
   background-color: DodgerBlue;
   color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+.header nav a:hover {
+  text-decoration: underline;
 }
 
 /* Responsive */

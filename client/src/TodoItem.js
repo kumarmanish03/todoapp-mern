@@ -32,7 +32,7 @@ function TodoItem(props) {
       <div className="date">{getDate(props.item.date_added)}</div>
       <div>
         <button onClick={delTodo} className="btn">
-          <i class="fa fa-trash"></i>
+          <i className="fa fa-trash"></i>
         </button>
       </div>
     </div>
