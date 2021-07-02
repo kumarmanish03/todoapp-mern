@@ -1,4 +1,4 @@
-# todoapp-mern
+# nTask Advanced
 
 #### Live link
 https://ntaskadvanced.netlify.app
