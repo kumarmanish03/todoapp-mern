@@ -6,8 +6,8 @@ import LogIn from "./Login";
 import Form from "./Form";
 import TodoItem from "./TodoItem";
 
-// const url = "https://my-todos-app.herokuapp.com/api/todos/";
-let url = "http://localhost:5000/api/";
+let url = "https://ntaskadvanced.herokuapp.com/api/";
+//let url = "http://localhost:5000/api/";
 
 class App extends React.Component {
   state = {
