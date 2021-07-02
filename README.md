@@ -4,4 +4,4 @@
 https://ntaskadvanced.netlify.app
 
 #### API
-https://ntaskadvanced.herokuapp.com/api/
+https://ntaskadvanced.herokuapp.com/
