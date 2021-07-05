@@ -14,6 +14,7 @@ class App extends React.Component {
     todosData: [],
     isLoading: false,
     user: JSON.parse(localStorage.getItem("user")),
+    loginErr: "",
   };
 
   signup = ({ username, password }) => {
@@ -33,6 +34,8 @@ class App extends React.Component {
   };
 
   login = ({ username, password }) => {
+    this.setState({ loginErr: "" });
+
     fetch(url + "users/login", {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -41,9 +44,13 @@ class App extends React.Component {
       .then((data) => data.json())
       .then((data) => {
         if (data.msg === "ok") {
-          this.setState({ user: data.user });
-          localStorage.setItem("user", JSON.stringify(data.user));
-          this.fetchtodo();
+          if (data.user == null) {
+            this.setState({ loginErr: "Invalid credentials!" });
+          } else {
+            this.setState({ user: data.user });
+            localStorage.setItem("user", JSON.stringify(data.user));
+            this.fetchtodo();
+          }
         }
       });
   };
@@ -127,7 +134,11 @@ class App extends React.Component {
         </Route>
 
         <Route path="/login">
-          <LogIn user={this.state.user} login={this.login} />
+          <LogIn
+            user={this.state.user}
+            login={this.login}
+            error={this.state.loginErr}
+          />
         </Route>
 
         <Route exact path="/">

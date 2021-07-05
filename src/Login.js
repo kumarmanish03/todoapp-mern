@@ -15,26 +15,32 @@ export default function LogIn(props) {
   }
 
   return (
-    <form id="login-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.currentTarget.value)}
-        required
-      />
+    <div className="cont">
+      <form id="login-form" className="user-form" onSubmit={handleSubmit}>
+        <h2>Login Here</h2>
 
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.currentTarget.value)}
-        required
-      />
+        {props.error && <div className="error-card">{props.error}</div>}
 
-      <button type="submit">Log In</button>
-    </form>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.currentTarget.value)}
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.currentTarget.value)}
+          required
+        />
+
+        <button type="submit">Log In</button>
+      </form>
+    </div>
   );
 }

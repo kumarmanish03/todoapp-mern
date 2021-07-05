@@ -5,6 +5,7 @@
 
 body {
   background-color: whitesmoke;
+  font-family: "Arial", sans-serif;
 }
 
 .todo-list {
@@ -121,6 +122,82 @@ button:focus {
   text-align: center;
   background-color: DodgerBlue;
   color: white;
+}
+
+.cont {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.header .cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.user-form {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 50px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 3px rgba(0, 0, 0, 0.15);
+}
+
+.user-form .error-card {
+  margin-top: 30px;
+  padding: 15px 20px;
+  background: #f002;
+  border-radius: 10px;
+  border: 1px solid #f00;
+  color: #f00;
+}
+
+.user-form h2 {
+  text-align: center;
+}
+
+.user-form input {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 10px 15px;
+  background: #ebebeb;
+  border-radius: 3px;
+  border: 1px solid #0002;
+  outline: 0;
+}
+.user-form input:focus {
+  border: 1px solid #000;
+  box-shadow: none;
+}
+
+.user-form [type="submit"] {
+  display: block;
+  width: 50%;
+  margin: 40px auto 0;
+  padding: 10px 0;
+  background: rgb(9, 67, 124);
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.user-form [type="submit"]:focus,
+.user-form [type="submit"]:hover {
+  background: dodgerblue;
 }
 
 /* Responsive */
