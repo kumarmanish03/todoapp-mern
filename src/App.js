@@ -14,10 +14,13 @@ class App extends React.Component {
     todosData: [],
     isLoading: false,
     user: JSON.parse(localStorage.getItem("user")),
+    signupErr: "",
     loginErr: "",
   };
 
   signup = ({ username, password }) => {
+    this.setState({ isLoading: true, signupErr: "" });
+
     fetch(url + "users/signup", {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -29,12 +32,16 @@ class App extends React.Component {
           this.setState({ user: data.user });
           localStorage.setItem("user", JSON.stringify(data.user));
           this.fetchtodo();
+        } else if (data.msg === "USER_EXISTS") {
+          this.setState({ signupErr: "Username already taken!" });
         }
+
+        this.setState({ isLoading: false });
       });
   };
 
   login = ({ username, password }) => {
-    this.setState({ loginErr: "" });
+    this.setState({ isLoading: true, loginErr: "" });
 
     fetch(url + "users/login", {
       method: "POST",
@@ -52,6 +59,7 @@ class App extends React.Component {
             this.fetchtodo();
           }
         }
+        this.setState({ isLoading: false });
       });
   };
 
@@ -130,7 +138,11 @@ class App extends React.Component {
         <Header user={this.state.user} logout={this.logout} />
 
         <Route path="/signup">
-          <SignUp user={this.state.user} signup={this.signup} />
+          <SignUp
+            user={this.state.user}
+            signup={this.signup}
+            error={this.state.signupErr}
+          />
         </Route>
 
         <Route path="/login">
@@ -147,12 +159,18 @@ class App extends React.Component {
           ) : (
             <>
               <Form addTodo={this.addTodo} />
-              <div className="todo-list">
-                {this.state.isLoading ? "Loading..." : todoItems}
-              </div>
+              <div className="todo-list">{todoItems}</div>
             </>
           )}
         </Route>
+
+        {this.state.isLoading && (
+          <div className="app-loading">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        )}
       </div>
     );
   }

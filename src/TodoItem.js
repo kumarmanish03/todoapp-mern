@@ -8,6 +8,7 @@ function TodoItem(props) {
 
   let styles = {
     textDecoration: props.item.completed ? "line-through" : "none",
+    opacity: props.item.completed ? "0.5" : "1",
   };
 
   const toggleTodo = () => {
@@ -24,9 +25,10 @@ function TodoItem(props) {
       <div className="todoi">
         <input
           type="checkbox"
-          defaultChecked={props.item.completed}
-          onChange={toggleTodo}
+          // defaultChecked={props.item.completed}
+          checked={props.item.completed}
         ></input>
+        <span className="check-box" onClick={toggleTodo}></span>
         <label style={styles}>{props.item.todo}</label>
       </div>
       <div className="date">{getDate(props.item.date_added)}</div>

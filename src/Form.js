@@ -26,11 +26,10 @@ class Form extends React.Component {
               type="text"
               value={this.state.text}
               onChange={this.onChange}
+              placeholder="Add new item"
               required
-            ></input>
-            <button className="btnSubmit">
-              <i className="fa fa-plus-square-o"></i>
-            </button>
+            />
+            <button className="plus-btn">+</button>
           </form>
         </div>
       </div>

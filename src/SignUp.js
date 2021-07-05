@@ -27,6 +27,7 @@ export default function SignUp(props) {
         <h2>Signup Here</h2>
 
         {error && <div className="error-card">{error}</div>}
+        {props.error && <div className="error-card">{props.error}</div>}
 
         <input
           type="text"
