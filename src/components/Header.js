@@ -23,11 +23,12 @@ const Header = () => {
   return (
     <header id="header">
       <h1 className="app-name">nTasks Advanced</h1>
-      {init && loggedIn && (
-        <button className="logout-btn" onClick={logout}>
-          {authLoading || loggingOut ? <Loader /> : 'Logout'}
-        </button>
-      )}
+      {authLoading ||
+        (init && loggedIn && (
+          <button className="logout-btn" onClick={logout}>
+            {loggingOut ? <Loader /> : 'Logout'}
+          </button>
+        ))}
     </header>
   );
 };

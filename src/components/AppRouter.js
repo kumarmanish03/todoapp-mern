@@ -10,10 +10,6 @@ const AddTask = lazy(() => import('./tasks/AddTask'));
 
 const GuestRouter = () => (
   <Switch>
-    <Route path="/" exact>
-      <Redirect to="/signup" />
-    </Route>
-
     <Route path="/signup">
       <Suspense fallback={<Loader />}>
         <Signup />
@@ -26,7 +22,11 @@ const GuestRouter = () => (
       </Suspense>
     </Route>
 
-    <Route path="/logout">
+    <Route path="/" exact>
+      <Redirect to="/signup" />
+    </Route>
+
+    <Route path="/new" exact>
       <Redirect to="/login" />
     </Route>
   </Switch>
