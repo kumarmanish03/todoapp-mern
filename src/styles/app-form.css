@@ -1,0 +1,76 @@
+.app-form .form-row {
+  margin-top: 1em;
+}
+.app-form .form-row:first-child {
+  margin-top: 0;
+}
+
+.app-form .form-error-row {
+  margin-bottom: 2em;
+  padding: 0.5em 1em;
+  overflow: hidden;
+  background: var(--dark-accent);
+  border-radius: 0.5em;
+  border: 1px solid crimson;
+  color: crimson;
+  animation: form-error-row-in 0.5s ease-in-out;
+}
+
+@keyframes form-error-row-in {
+  0% {
+    opacity: 0;
+  }
+}
+
+.app-form .form-submit-row {
+  margin-top: 2em;
+}
+
+.app-form .form-field,
+.app-form .form-submit-button {
+  display: block;
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+.app-form .form-field {
+  padding: 0.75em 1em;
+  resize: none;
+  background: var(--dark-accent);
+  border: 1px solid #0001;
+  color: var(--light);
+}
+.app-form .form-field:focus {
+  transform: scale(1.01);
+  background: var(--light);
+  border-color: var(--theme-accent);
+  box-shadow: inset 0 0 0 1px var(--theme-accent);
+  color: black;
+}
+
+.app-form .form-submit-button {
+  height: 3em;
+  padding: 0;
+  background: var(--theme);
+  color: var(--light);
+}
+.app-form .form-submit-button:hover,
+.app-form .form-submit-button:focus {
+  transform: scale(1.01);
+  background-color: var(--theme-accent);
+}
+
+.app-form .form-foot {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.app-form .form-foot-link-cont a {
+  color: var(--theme);
+  font-weight: bold;
+}
+.app-form .form-foot-link-cont a:hover,
+.app-form .form-foot-link-cont a:focus {
+  text-decoration: underline;
+  color: var(--theme-accent);
+}

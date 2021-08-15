@@ -1,0 +1,127 @@
+#app-tasks {
+  margin-bottom: 2em;
+}
+
+#app-tasks .no-task-msg {
+  text-align: center;
+  color: var(--light-accent);
+}
+
+#app-tasks .add-task-btn-wrp {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+#app-tasks .add-task-btn-wrp a {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background: var(--theme);
+  border-radius: 50%;
+  box-shadow: 0 0 10px -3px var(--dark-accent);
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#app-tasks .add-task-btn-wrp a:hover,
+#app-tasks .add-task-btn-wrp a:focus {
+  background: var(--theme-accent);
+}
+
+#app-tasks .task-itm {
+  margin-top: 1em;
+  padding: 0.75em;
+  border-radius: 0.5em;
+  border: 1px solid var(--dark-accent);
+}
+#app-tasks .task-itm:first-child {
+  margin-top: 0;
+}
+
+#app-tasks .task-itm .itm-row {
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#app-tasks .task-itm .itm-row:first-child {
+  margin-top: 0;
+}
+
+#app-tasks .task-itm .itm-col {
+  display: flex;
+  align-items: center;
+}
+
+#app-tasks .task-itm h3 {
+  flex: 1;
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 1em;
+}
+
+#app-tasks .task-itm .itm-btn {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 0.5em;
+  border-radius: 50%;
+  font-size: 0.9em;
+  color: var(--light-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --bgclr: var(--dark-accent);
+  --clr: var(--light);
+}
+#app-tasks .task-itm .itm-btn:first-child {
+  margin-left: 0;
+}
+#app-tasks .task-itm .itm-bg-g-btn {
+  --bgclr: mediumseagreen;
+}
+#app-tasks .task-itm .itm-clr-g-btn {
+  --clr: mediumseagreen;
+}
+#app-tasks .task-itm .itm-bg-r-btn {
+  --bgclr: crimson;
+}
+#app-tasks .task-itm .itm-btn:hover,
+#app-tasks .task-itm .itm-btn:focus {
+  background: var(--bgclr);
+  color: var(--clr);
+}
+#app-tasks .task-itm .itm-done-btn {
+  color: var(--clr);
+}
+
+#app-tasks .task-itm .itm-time-row {
+  padding-left: 1.85rem;
+  opacity: 0.5;
+  font-size: 0.7em;
+}
+
+#app-tasks .task-itm .item-run {
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.5em;
+  border-radius: 50%;
+  background: lightgreen;
+}
+
+#app-tasks .task-itm .itm-desc-row {
+  display: none;
+  padding: 0 1.85rem;
+  opacity: 0.9;
+  overflow: hidden;
+  font-size: 0.9em;
+}
+#app-tasks .task-itm .itm-desc-row[data-active='true'] {
+  display: block;
+}
+
+#app-tasks .task-itm .itm-desc-btn[data-active='true'] {
+  transform: rotate(180deg);
+}

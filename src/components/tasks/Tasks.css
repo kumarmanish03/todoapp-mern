@@ -1,0 +1,16 @@
+#app-tasks .tasks-error {
+  text-align: center;
+  padding: 0.5em 1em;
+  background: var(--dark-accent);
+  border-radius: 0.5em;
+  border: 1px solid crimson;
+}
+
+#app-tasks .tasks-error button {
+  color: var(--theme);
+  font-weight: bold;
+}
+#app-tasks .tasks-error button:hover,
+#app-tasks .tasks-error button:focus {
+  color: var(--theme-accent);
+}

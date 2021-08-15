@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+@import url('./styles/vars.css');
+@import url('./styles/reset.css');
+@import url('./styles/classes.css');
+@import url('./styles/flex.css');
+@import url('./styles/app-form.css');

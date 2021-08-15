@@ -1,0 +1,92 @@
+#app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--theme),
+    var(--theme-accent)
+  );
+  background-attachment: fixed;
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+}
+
+#app-error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app-error .error-wrp {
+  padding: 1em;
+  background: var(--dark-accent);
+  border-radius: 0.5em;
+  border: 2px solid crimson;
+  text-align: center;
+}
+
+#app-error button {
+  color: var(--theme);
+  font-weight: bold;
+}
+#app-error button:hover,
+#app-error button:focus {
+  text-decoration: underline;
+  color: var(--theme-accent);
+}
+
+#app-body {
+  flex: 1;
+  padding: 2em 0;
+}
+
+.app-content {
+  max-width: 400px;
+  margin: auto;
+  padding: 2em;
+  background: var(--dark);
+  border-radius: 0.5em;
+  box-shadow: 0 0 10px -3px var(--dark-accent);
+  color: var(--light);
+  animation: app-content-in 0.2s ease-in-out;
+}
+
+@keyframes app-content-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.app-content h2 {
+  position: relative;
+  text-align: center;
+}
+
+.app-content h2 a {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.25em;
+  border-radius: 50%;
+  font-size: 0.75em;
+  display: flex;
+}
+.app-content h2 a:hover,
+.app-content h2 a:focus {
+  background: var(--dark-accent);
+}
+
+.app-content-body {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid var(--dark-accent);
+}
