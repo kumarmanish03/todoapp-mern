@@ -53,8 +53,6 @@ const UserRouter = () => (
     <Route path="/login">
       <Redirect to="/" />
     </Route>
-
-    <Route path="/logout">Logout</Route>
   </Switch>
 );
 

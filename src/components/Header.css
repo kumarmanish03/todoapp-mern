@@ -1,8 +1,21 @@
 #header {
   padding: 2em;
+  display: flex;
+  justify-content: center;
 }
 
 #header .app-name {
-  text-align: center;
   font-size: 2em;
+}
+
+#header .logout-btn {
+  margin-left: 50px;
+  padding: 0.5em 1em;
+  background: var(--dark);
+  border-radius: 0.5em;
+  color: var(--light);
+}
+#header .logout-btn:hover,
+#header .logout-btn:focus {
+  background: var(--dark-accent);
 }
