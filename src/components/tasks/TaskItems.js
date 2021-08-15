@@ -14,22 +14,24 @@ import server from '../../app/server';
 
 const getDate = (timestamp, current) => {
   const extract = t => ({
-    y: +t.substring(0, 4),
-    m: +t.substring(5, 7),
-    d: +t.substring(8, 10),
-    h: +t.substring(11, 13),
-    n: +t.substring(14, 16),
-    s: +t.substring(17, 19),
+    y: t.substring(0, 4),
+    m: t.substring(5, 7),
+    d: t.substring(8, 10),
+    h: t.substring(11, 13),
+    n: t.substring(14, 16),
+    s: t.substring(17, 19),
   });
+
+  console.log(timestamp);
 
   timestamp = extract(timestamp);
   current = extract(current);
 
-  const diff = current.d - timestamp.d;
+  const diff = +current.d - +timestamp.d;
   const { y, m, d, h, n, s } = timestamp;
 
-  if (diff <= 1) return `Today ${h}:${n}:${s}`;
-  else if (diff <= 2 && diff > 1) return `Tomorrow`;
+  if (diff <= 1) return `Today at ${h}:${n}:${s}`;
+  else if (diff <= 2 && diff > 1) return `Yesterday`;
   else return `${d}-${m}-${y}`;
 };
 
