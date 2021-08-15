@@ -22,17 +22,15 @@ const getDate = (timestamp, current) => {
     s: t.substring(17, 19),
   });
 
-  console.log(timestamp);
-
   timestamp = extract(timestamp);
   current = extract(current);
 
   const diff = +current.d - +timestamp.d;
   const { y, m, d, h, n, s } = timestamp;
 
-  if (diff <= 1) return `Today at ${h}:${n}:${s}`;
-  else if (diff <= 2 && diff > 1) return `Yesterday`;
-  else return `${d}-${m}-${y}`;
+  if (diff <= 1) return `${h}:${n}:${s}`;
+  else if (diff <= 2 && diff > 1) return 'Yesterday';
+  else return `${d}/${m}/${y}`;
 };
 
 const Task = ({ data, actions }) => {
@@ -117,7 +115,7 @@ const Task = ({ data, actions }) => {
             '-- : --'
           ) : (
             <>
-              {getDate(data.start_time, data.cur_time)} -
+              {getDate(data.start_time, data.cur_time)} -{' '}
               {!data.end_time ? (
                 <span className="item-run"></span>
               ) : (
@@ -143,7 +141,11 @@ const TaskItems = () => {
   return (
     <>
       {data.length ? (
-        data.map(data => <Task key={data.id} data={data} actions={actions} />)
+        <div className="task-items">
+          {data.map(data => (
+            <Task key={data.id} data={data} actions={actions} />
+          ))}
+        </div>
       ) : (
         <div className="no-task-msg">There is nothing to do!</div>
       )}

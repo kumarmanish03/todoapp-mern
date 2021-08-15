@@ -60,17 +60,23 @@
   background-color: var(--theme-accent);
 }
 
-.app-form .form-foot {
-  margin-top: 2em;
-  text-align: center;
-}
+@media (max-width: 500px) {
+  .app-form::before {
+    content: '';
+    flex: 1;
+  }
 
-.app-form .form-foot-link-cont a {
-  color: var(--theme);
-  font-weight: bold;
-}
-.app-form .form-foot-link-cont a:hover,
-.app-form .form-foot-link-cont a:focus {
-  text-decoration: underline;
-  color: var(--theme-accent);
+  .app-form .form-row {
+    margin-top: 2em;
+  }
+
+  .app-form .form-field {
+    padding: 1em;
+  }
+
+  .app-form .form-submit-row {
+    flex: 2;
+    display: flex;
+    align-items: flex-end;
+  }
 }

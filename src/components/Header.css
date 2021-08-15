@@ -2,6 +2,7 @@
   padding: 2em;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #header .app-name {
@@ -18,4 +19,20 @@
 #header .logout-btn:hover,
 #header .logout-btn:focus {
   background: var(--dark-accent);
+}
+
+@media (max-width: 500px) {
+  #header {
+    padding: 1.5em;
+    justify-content: space-between;
+  }
+
+  #header .app-name {
+    font-size: 1.25em;
+  }
+
+  #header .logout-btn {
+    margin-left: 0;
+    height: 2.5em;
+  }
 }

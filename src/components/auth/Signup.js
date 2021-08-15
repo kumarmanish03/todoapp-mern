@@ -36,14 +36,14 @@ const Signup = () => {
   };
 
   return (
-    <form
-      className="app-content app-form"
-      autoComplete="off"
-      onSubmit={handleSubmit}
-    >
+    <div className="app-content">
       <h2>Signup here</h2>
 
-      <div className="app-content-body">
+      <form
+        className="app-content-body app-form"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         {error && <div className="form-row form-error-row">{error}</div>}
 
         <div className="form-row">
@@ -54,8 +54,8 @@ const Signup = () => {
             placeholder="Create Username"
             value={username}
             onChange={e => setUsername(e.target.value)}
-            required
             autoFocus
+            required
             disabled={loading}
           />
         </div>
@@ -82,14 +82,14 @@ const Signup = () => {
             {loading ? <Loader /> : 'Signup'}
           </button>
         </div>
-      </div>
+      </form>
 
-      <div className="form-foot">
-        <div className="form-foot-link-cont">
+      <div className="app-foot">
+        <div className="app-foot-text">
           Already have an account? <Link to="/login">Login</Link>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

@@ -90,3 +90,51 @@
   padding-top: 2em;
   border-top: 1px solid var(--dark-accent);
 }
+
+.app-foot {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.app-foot-text a {
+  color: var(--theme);
+  font-weight: bold;
+}
+.app-foot-text a:hover,
+.app-foot-text a:focus {
+  text-decoration: underline;
+  color: var(--theme-accent);
+}
+
+@media (max-width: 500px) {
+  #app-body {
+    padding: 0;
+  }
+
+  .app-content {
+    max-width: none;
+    height: 100%;
+    padding: 1.5em;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-content h2 {
+    font-size: 1.75em;
+  }
+
+  .app-content-body {
+    flex: 1;
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .app-foot {
+    margin-top: 1.5em;
+  }
+}

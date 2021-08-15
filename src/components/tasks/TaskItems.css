@@ -125,3 +125,22 @@
 #app-tasks .task-itm .itm-desc-btn[data-active='true'] {
   transform: rotate(180deg);
 }
+
+@media (max-width: 500px) {
+  #app-tasks .no-task-msg {
+    flex: 1;
+  }
+
+  #app-tasks .add-task-btn-wrp {
+    margin-top: 0;
+  }
+
+  #app-tasks .add-task-btn-wrp a {
+    position: unset;
+  }
+
+  #app-tasks .task-items {
+    flex: 1;
+    overflow: auto;
+  }
+}
