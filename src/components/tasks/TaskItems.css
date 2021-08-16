@@ -28,6 +28,7 @@
 #app-tasks .add-task-btn-wrp a:hover,
 #app-tasks .add-task-btn-wrp a:focus {
   background: var(--theme-accent);
+  color: var(--dark);
 }
 
 #app-tasks .task-itm {

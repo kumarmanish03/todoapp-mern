@@ -6,6 +6,7 @@
 }
 
 #header .app-name {
+  color: var(--dark);
   font-size: 2em;
 }
 
@@ -23,16 +24,18 @@
 
 @media (max-width: 500px) {
   #header {
-    padding: 1.5em;
+    padding: 1em 1.5rem;
     justify-content: space-between;
   }
 
   #header .app-name {
+    height: 2em;
     font-size: 1.25em;
+    line-height: 2em;
   }
 
   #header .logout-btn {
-    margin-left: 0;
     height: 2.5em;
+    margin-left: 0;
   }
 }

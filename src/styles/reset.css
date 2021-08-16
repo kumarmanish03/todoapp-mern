@@ -48,6 +48,10 @@ button:disabled {
   opacity: 0.5;
 }
 
+textarea {
+  height: 125px;
+}
+
 button {
   cursor: pointer;
 }

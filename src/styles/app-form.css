@@ -58,6 +58,7 @@
 .app-form .form-submit-button:focus {
   transform: scale(1.01);
   background-color: var(--theme-accent);
+  color: var(--dark);
 }
 
 @media (max-width: 500px) {

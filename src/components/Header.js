@@ -23,6 +23,7 @@ const Header = () => {
   return (
     <header id="header">
       <h1 className="app-name">nTasks Advanced</h1>
+
       {authLoading ||
         (init && loggedIn && (
           <button className="logout-btn" onClick={logout}>

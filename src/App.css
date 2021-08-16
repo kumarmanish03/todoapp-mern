@@ -6,7 +6,7 @@
   height: 100%;
   overflow: auto;
   background-image: linear-gradient(
-    to right bottom,
+    to bottom right,
     var(--theme),
     var(--theme-accent)
   );
@@ -136,5 +136,11 @@
 
   .app-foot {
     margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 359px) {
+  #app {
+    font-size: 0.9em;
   }
 }

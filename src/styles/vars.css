@@ -1,8 +1,15 @@
 :root {
-  --dark: #261c2c;
-  --dark-accent: #3e2c41;
-  --light: #ffffff;
-  --light-accent: #aaaaaa;
-  --theme: #6e85b2;
-  --theme-accent: #5c527f;
+  --dark: #202040;
+  --dark-accent: #543864;
+  --light: #fff;
+  --light-accent: #ccc;
+  --theme: #ff6363;
+  --theme-accent: #ffbd69;
+
+  --dark-1: #261c2c;
+  --dark-accent-1: #3e2c41;
+  --light-1: #ffffff;
+  --light-accent-1: #aaaaaa;
+  --theme-1: #6e85b2;
+  --theme-accent-1: #5c527f;
 }
