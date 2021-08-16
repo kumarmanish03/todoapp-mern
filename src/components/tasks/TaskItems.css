@@ -145,9 +145,16 @@
   opacity: 0.9;
   overflow: hidden;
   font-size: 0.9em;
+  animation: task-itm-desc-row 0.2s ease-in-out;
 }
 #app-tasks .task-itm .itm-desc-row[data-active='true'] {
   display: block;
+}
+
+@keyframes task-itm-desc-row {
+  0% {
+    opacity: 0;
+  }
 }
 
 #app-tasks .task-itm .itm-desc-btn[data-active='true'] {
