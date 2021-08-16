@@ -21,6 +21,7 @@
   border-radius: 50%;
   box-shadow: 0 0 10px -3px var(--dark-accent);
   font-size: 2em;
+  animation: add-task-btn-in 0.6s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,14 +32,31 @@
   color: var(--dark);
 }
 
+@keyframes add-task-btn-in {
+  0%,
+  66% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+}
+
 #app-tasks .task-itm {
   margin-top: 1em;
   padding: 0.75em;
   border-radius: 0.5em;
   border: 1px solid var(--dark-accent);
+  animation: task-itm-in 0.6s ease-in-out;
 }
 #app-tasks .task-itm:first-child {
   margin-top: 0;
+}
+
+@keyframes task-itm-in {
+  0%,
+  66% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
 }
 
 #app-tasks .task-itm .itm-row {

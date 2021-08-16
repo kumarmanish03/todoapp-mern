@@ -8,6 +8,13 @@
 #header .app-name {
   color: var(--dark);
   font-size: 2em;
+  animation: app-name-in 0.2s ease-in-out;
+}
+
+@keyframes app-name-in {
+  0% {
+    opacity: 0;
+  }
 }
 
 #header .logout-btn {
@@ -16,10 +23,18 @@
   background: var(--dark);
   border-radius: 0.5em;
   color: var(--light);
+  animation: logout-btn-in 0.2s ease-in-out;
 }
 #header .logout-btn:hover,
 #header .logout-btn:focus {
   background: var(--dark-accent);
+}
+
+@keyframes logout-btn-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
 }
 
 @media (max-width: 500px) {

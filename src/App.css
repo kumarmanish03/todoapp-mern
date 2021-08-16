@@ -68,6 +68,15 @@
 .app-content h2 {
   position: relative;
   text-align: center;
+  animation: app-content-h2-in 0.4s ease-in-out;
+}
+
+@keyframes app-content-h2-in {
+  0%,
+  50% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
 
 .app-content h2 a {
