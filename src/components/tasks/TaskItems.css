@@ -5,12 +5,11 @@
 #app-tasks .no-task-msg {
   text-align: center;
   color: var(--light-accent);
-  animation: no-task-msg-in 0.6s ease-in-out;
+  animation: no-task-msg-in 0.2s ease-in-out;
 }
 
 @keyframes no-task-msg-in {
-  0%,
-  50% {
+  0% {
     opacity: 0;
     transform: translateY(1%);
   }
@@ -30,7 +29,7 @@
   border-radius: 50%;
   box-shadow: 0 0 10px -3px var(--dark-accent);
   font-size: 2em;
-  animation: add-task-btn-in 0.6s ease-in-out;
+  animation: add-task-btn-in 0.2s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,8 +41,7 @@
 }
 
 @keyframes add-task-btn-in {
-  0%,
-  66% {
+  0% {
     opacity: 0;
     transform: translateY(50%);
   }
@@ -54,15 +52,14 @@
   padding: 0.75em;
   border-radius: 0.5em;
   border: 1px solid var(--dark-accent);
-  animation: task-itm-in 0.6s ease-in-out;
+  animation: task-itm-in 0.2s ease-in-out;
 }
 #app-tasks .task-itm:first-child {
   margin-top: 0;
 }
 
 @keyframes task-itm-in {
-  0%,
-  66% {
+  0% {
     opacity: 0;
     transform: translateY(10%);
   }
