@@ -103,6 +103,14 @@
 .app-foot {
   margin-top: 2em;
   text-align: center;
+  animation: app-foot-in 0.8s ease-in-out;
+}
+
+@keyframes app-foot-in {
+  0%,
+  75% {
+    opacity: 0;
+  }
 }
 
 .app-foot-text a {
