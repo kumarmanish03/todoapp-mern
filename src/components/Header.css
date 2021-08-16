@@ -18,6 +18,8 @@
 }
 
 #header .logout-btn {
+  width: 100px;
+  height: 40px;
   margin-left: 50px;
   padding: 0.5em 1em;
   background: var(--dark);
@@ -37,6 +39,10 @@
   }
 }
 
+#header .logout-btn .loader {
+  font-size: 0.75em;
+}
+
 @media (max-width: 500px) {
   #header {
     padding: 1em 1.5rem;
@@ -44,13 +50,13 @@
   }
 
   #header .app-name {
-    height: 2em;
+    height: 40px;
     font-size: 1.25em;
-    line-height: 2em;
+    line-height: 40px;
   }
 
   #header .logout-btn {
-    height: 2.5em;
+    width: 80px;
     margin-left: 0;
   }
 }
