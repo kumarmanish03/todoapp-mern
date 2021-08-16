@@ -5,6 +5,15 @@
 #app-tasks .no-task-msg {
   text-align: center;
   color: var(--light-accent);
+  animation: no-task-msg-in 0.6s ease-in-out;
+}
+
+@keyframes no-task-msg-in {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(1%);
+  }
 }
 
 #app-tasks .add-task-btn-wrp {
