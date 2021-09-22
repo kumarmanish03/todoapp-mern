@@ -41,7 +41,12 @@ const Task = ({ data, actions }) => {
     setLoading(true);
 
     try {
-      const { cur_time } = await server.put(`tasks/${data.id}/${type}`);
+      const { cur_time } = await server({
+        method: 'put',
+        path: `tasks/${data.id}/${type}`,
+        passToken: true,
+      });
+
       setLoading(false);
       actions.update(data.id, `${type}_time`, cur_time);
     } catch {
@@ -53,7 +58,12 @@ const Task = ({ data, actions }) => {
     setLoading(true);
 
     try {
-      await server.delete(`tasks/${data.id}`);
+      await server({
+        method: 'delete',
+        path: `tasks/${data.id}`,
+        passToken: true,
+      });
+
       setLoading(false);
       actions.del(data.id);
     } catch {
@@ -68,16 +78,14 @@ const Task = ({ data, actions }) => {
           <button
             className="itm-btn itm-bg-g-btn"
             onClick={() => startEnd('start')}
-            disabled={loading}
-          >
+            disabled={loading}>
             <Play />
           </button>
         ) : !data.end_time ? (
           <button
             className="itm-btn itm-bg-g-btn"
             onClick={() => startEnd('end')}
-            disabled={loading}
-          >
+            disabled={loading}>
             <Check />
           </button>
         ) : (
@@ -92,8 +100,7 @@ const Task = ({ data, actions }) => {
           <button
             className="itm-btn itm-desc-btn"
             data-active={descActive}
-            onClick={() => setDescActive(!descActive)}
-          >
+            onClick={() => setDescActive(!descActive)}>
             <ChevronDown />
           </button>
         )}
@@ -101,8 +108,7 @@ const Task = ({ data, actions }) => {
         <button
           className="itm-btn itm-bg-r-btn itm-del-btn"
           onClick={del}
-          disabled={loading}
-        >
+          disabled={loading}>
           <Trash />
         </button>
       </div>

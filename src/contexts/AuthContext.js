@@ -19,13 +19,19 @@ export const AuthProvider = ({ children }) => {
     setAuth({ ...auth, loading: true, error: null });
 
     try {
-      const data = await server.get('user');
+      const data = await server({
+        method: 'get',
+        path: 'user',
+        passToken: true,
+      });
+
       setAuth({ ...initState, init: true, loggedIn: true, data });
     } catch (error) {
       if ([SERVER_ERR.ERR_CONN, SERVER_ERR.ERR_UNKNOWN].includes(error)) {
         setAuth({ ...auth, loading: false, error });
       } else {
         setAuth({ ...initState, init: true });
+        localStorage.removeItem('loginToken');
       }
     }
   };

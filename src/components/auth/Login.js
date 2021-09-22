@@ -26,8 +26,14 @@ const Login = () => {
     setLoading(true);
 
     try {
-      await server.post('user/login', { username, password });
+      const { loginToken } = await server({
+        method: 'post',
+        path: 'user/login',
+        body: { username, password },
+      });
+
       reset();
+      localStorage.setItem('loginToken', loginToken);
       syncAuth();
     } catch (error) {
       setError(error);
@@ -42,8 +48,7 @@ const Login = () => {
       <form
         className="app-content-body app-form"
         autoComplete="off"
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         {error && <div className="form-row form-error-row">{error}</div>}
 
         <div className="form-row">
@@ -77,8 +82,7 @@ const Login = () => {
           <button
             type="submit"
             className="form-submit-button"
-            disabled={loading}
-          >
+            disabled={loading}>
             {loading ? <Loader /> : 'Login'}
           </button>
         </div>
