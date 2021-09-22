@@ -1,14 +1,19 @@
 import { BASE_SERVER_URL, SERVER_ERR } from './consts';
 
-const run = async (method, path, body) => {
+const server = async ({ method, path, body, passToken }) => {
   try {
-    const url = BASE_SERVER_URL + path;
+    const loginToken = localStorage.getItem('loginToken') || '';
+
+    if (passToken && !loginToken) {
+      return Promise.reject(SERVER_ERR.ERR_LOGIN);
+    }
+
+    const query = passToken ? `?loginToken=${loginToken}` : '';
+    const url = BASE_SERVER_URL + path + query;
     const config = {
       method,
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     };
 
@@ -21,13 +26,6 @@ const run = async (method, path, body) => {
   } catch {
     return Promise.reject(SERVER_ERR.ERR_CONN);
   }
-};
-
-const server = {
-  get: path => run('get', path),
-  post: (path, body) => run('post', path, body),
-  put: (path, body) => run('put', path, body),
-  delete: path => run('delete', path),
 };
 
 export default server;

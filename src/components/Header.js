@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
 import useAuth from '../hooks/useAuth';
-import server from '../app/server';
-import Loader from './Loader';
 
 const Header = () => {
   const [{ init, loading: authLoading, loggedIn }, syncAuth] = useAuth();
-  const [loggingOut, setLoggingOut] = useState(false);
 
   const logout = async () => {
-    setLoggingOut(true);
-
-    try {
-      await server.get('user/logout');
-      syncAuth();
-      setLoggingOut(false);
-    } catch {
-      setLoggingOut(false);
-    }
+    localStorage.removeItem('loginToken');
+    syncAuth();
   };
 
   return (
@@ -27,7 +17,7 @@ const Header = () => {
       {authLoading ||
         (init && loggedIn && (
           <button className="logout-btn" onClick={logout}>
-            {loggingOut ? <Loader /> : 'Logout'}
+            Logout
           </button>
         ))}
     </header>

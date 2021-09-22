@@ -27,7 +27,13 @@ const AddTask = () => {
     setLoading(true);
 
     try {
-      await server.post('tasks', { title, description });
+      await server({
+        method: 'post',
+        path: 'tasks',
+        body: { title, description },
+        passToken: true,
+      });
+
       reset();
       setTaskAdded(true);
     } catch (error) {
@@ -48,8 +54,7 @@ const AddTask = () => {
       <form
         className="app-content-body app-form"
         onSubmit={handleSubmit}
-        autoComplete="off"
-      >
+        autoComplete="off">
         {error && <div className="form-row form-error-row">{error}</div>}
 
         <div className="form-row">
@@ -80,8 +85,7 @@ const AddTask = () => {
           <button
             type="submit"
             className="form-submit-button"
-            disabled={loading}
-          >
+            disabled={loading}>
             {loading ? <Loader /> : 'Add Task'}
           </button>
         </div>

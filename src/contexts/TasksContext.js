@@ -18,7 +18,12 @@ export const TasksProvider = ({ children }) => {
     setTasks({ ...tasks, loading: true, error: null });
 
     try {
-      const data = await server.get('tasks');
+      const data = await server({
+        method: 'get',
+        path: 'tasks',
+        passToken: true,
+      });
+
       setTasks({ init: true, loading: false, error: null, data });
     } catch (error) {
       if ([SERVER_ERR.ERR_CONN, SERVER_ERR.ERR_UNKNOWN].includes(error)) {
